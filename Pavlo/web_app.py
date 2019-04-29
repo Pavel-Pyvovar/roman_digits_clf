@@ -2,29 +2,9 @@ from flask import Flask, render_template, url_for, request
 import os
 app = Flask(__name__)
 
-posts = [
-    {
-    'author': 'Pavlo Pyvovar',
-    'title': 'Blog Post 1',
-    'content': 'First post content',
-    'date_posted': 'April 28, 2019'
-    },
-    {
-    'author': 'Olya Pashnieva',
-    'title': 'Blog Post 2',
-    'content': 'Second post content',
-    'date_posted': 'April 28, 2019'
-    }
-
-]
-
 @app.route("/")
 def home():
     return render_template('home.html')
-
-@app.route("/blog")
-def blog():
-    return  render_template('blog.html', posts=posts)
 
 @app.route("/about")
 def about():
@@ -56,6 +36,7 @@ def upload():
 
 @app.route("/model")
 def model():
+    
     return render_template('model.html')
 
 if __name__ == "__main__":

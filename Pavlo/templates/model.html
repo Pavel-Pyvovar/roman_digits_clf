@@ -1,4 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
-    Here you can test our classifier
+    <div class = "jumbo">
+        <h2>Here you can test our classifier</h2>
+        <br/>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class=flashes>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        <p><a href="{{ url_for('model') }}">click me</a></p>
+        <p> lorem epsum </p>
+        <div>
 {% endblock content %}

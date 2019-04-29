@@ -1,4 +1,5 @@
-#import class Flask
-from flask import Flask
-#create an instance of a Flask class
-app = Flask(__name__)
+def main():
+    print("Hello world")
+
+if __name__ == "__main__":
+    main()
