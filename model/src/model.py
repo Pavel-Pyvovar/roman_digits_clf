@@ -3,6 +3,9 @@ import sys
 import numpy as np
 
 sys.path.extend(['..'])
+utils_path = os.path.abspath(os.path.join(__file__, '../../utils_folder'))
+sys.path.insert(0, utils_path)
+for item in sys.path: print(item)
 
 from config import process_config
 from utils import get_args
@@ -357,13 +360,16 @@ def main(config):
     m = Model(config)
     m.load_model()
 
-    # m.predict_proba()
+    m.predict_proba()
     m.close()
 
 if __name__ == "__main__":
     try:
         args = get_args()
+        #print(args.config)
         config = process_config(args.config)
+        #print(config)
+        #print("My message")
         main(config)
 
     except Exception as e:
