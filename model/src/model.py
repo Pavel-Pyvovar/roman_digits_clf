@@ -4,13 +4,15 @@ import numpy as np
 
 sys.path.extend(['..'])
 
-from utils.config import process_config
-from utils.utils import get_args
+from config import process_config
+from utils import get_args
 
 import tensorflow as tf
 from tensorflow.layers import (conv2d, max_pooling2d, average_pooling2d, batch_normalization, dropout, dense)
 from tensorflow.nn import (relu, softmax, leaky_relu)
 
+#from tensorflow import layers
+#from tensorflow import nn
 
 class Model():
     """
