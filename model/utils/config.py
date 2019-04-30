@@ -20,6 +20,7 @@ def get_config_from_json(json_file):
 
 
 def process_config(json_file):
+    print("Running process_config")
     config, _ = get_config_from_json(json_file)
     config.test_summary_dir = os.path.join(
         "../logs", config['exp_name'], "test/")
