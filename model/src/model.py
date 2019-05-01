@@ -2,10 +2,8 @@ import os
 import sys
 import numpy as np
 
-sys.path.extend(['..'])
-utils_path = os.path.abspath(os.path.join(__file__, '../../utils_folder'))
+utils_path = os.path.abspath(os.path.join(__file__, '../../utils'))
 sys.path.insert(0, utils_path)
-for item in sys.path: print(item)
 
 from config import process_config
 from utils import get_args
@@ -359,7 +357,7 @@ class Model():
 def main(config):
     m = Model(config)
     m.load_model()
-
+    path_img = os.path.abspath(os.path.join(__file__, '../../../data/data_clean'))
     m.predict_proba()
     m.close()
 
