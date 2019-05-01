@@ -1,6 +1,7 @@
 import os
 import sys
 import numpy as np
+from PIL import Image
 
 utils_path = os.path.abspath(os.path.join(__file__, '../../utils'))
 sys.path.insert(0, utils_path)
@@ -279,6 +280,7 @@ class Model():
         else:
             steps = 1
             batch = data.shape[0]
+           
 
         self.__initialize_local()
 
@@ -357,8 +359,12 @@ class Model():
 def main(config):
     m = Model(config)
     m.load_model()
-    path_img = os.path.abspath(os.path.join(__file__, '../../../data/data_clean'))
-    m.predict_proba()
+    img_path = os.path.abspath(os.path.join(__file__, '../../../data_clean'))
+    img = os.path.abspath(os.path.join(img_path, "1/1.jpg"))
+    image = Image.open(img)
+    array = np.asarray(image)
+    array = np.stack((array, ) , axis=0)
+    print(m.predict_proba(array, batch=1))
     m.close()
 
 if __name__ == "__main__":
