@@ -206,7 +206,7 @@ def main(config):
     # Create variables for data paths
     original_data = os.path.join('..', 'data')
     clean_data = os.path.join('..' ,'data_clean')
-    splitted_data = os.path.join('..', 'data_splitted')
+    split_data = os.path.join('..', 'data_split')
 
     # Get filenames in directory with original data
     classes = [d for d in os.listdir(original_data)
@@ -214,14 +214,14 @@ def main(config):
     classes.sort()
 
     # Remove data if it was created before
-    if os.path.isdir(clean_data) and os.path.isdir(splitted_data):
-        print('\nWas found existing directory with clean and splitted data. Aaaaand...')
+    if os.path.isdir(clean_data) and os.path.isdir(split_data):
+        print('\nWas found existing directory with clean and split data. Aaaaand...')
         print('\tUnfortunately, they was removed... \n\t\tcompletely removed...\n')
         rmtree(clean_data)
-        rmtree(splitted_data)
+        rmtree(split_data)
 
 
-    create_dirs([original_data, clean_data, splitted_data])
+    create_dirs([original_data, clean_data, split_data])
     #Iterate over classes
     t = tqdm(classes)    
     for cl in t:
@@ -235,8 +235,8 @@ def main(config):
         augment_class(output_path, cl, config.number_to_have)
 
         # Split data
-        train_path = os.path.join(splitted_data, 'train', cl)
-        test_path = os.path.join(splitted_data, 'test', cl)
+        train_path = os.path.join(split_data, 'train', cl)
+        test_path = os.path.join(split_data, 'test', cl)
         tt_split_class(output_path, train_path, test_path, config.train_percentage)
 
     t.close()
