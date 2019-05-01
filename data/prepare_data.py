@@ -1,7 +1,8 @@
 import os
 import sys
 
-sys.path.extend(['..'])
+utils_path = os.path.abspath(os.path.join(__file__, '../../model/utils'))
+sys.path.insert(0, utils_path)
 
 import random
 from PIL import Image
@@ -12,9 +13,9 @@ import cv2
 from imgaug import augmenters as iaa
 import imgaug as ia
 
-from utils.utils import get_args
-from utils.config import process_config
-from utils.dirs import create_dirs
+from utils import get_args
+from config import process_config
+from dirs import create_dirs
 from shutil import rmtree, copyfile
 
 
