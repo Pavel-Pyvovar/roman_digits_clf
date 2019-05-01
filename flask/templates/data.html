@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>
+        How to upload files?
+    </h1>
+    <h2> 1) Draw a roman digit from on to eight</h2>
+    <h2> 2) Take a photo of it</h2>
+    <h2> 3) Upload photo from your device</h2>
+    <h2> 4) Classifiy!</h2>
+
+    <form id="upload-form" action="{{ url_for('upload')}}" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" multiple>
+        <input type="submit" value="send">
+    </form>
+
+{% endblock content %}
