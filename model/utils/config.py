@@ -21,10 +21,14 @@ def get_config_from_json(json_file):
 
 def process_config(json_file):
     config, _ = get_config_from_json(json_file)
+    path = os.path.dirname(__file__)
     config.test_summary_dir = os.path.join(
-        "../logs", config['exp_name'], "test/")
+        path, "../logs", config['exp_name'], "test/")
+        # "../logs", config['exp_name'], "test/")
     config.train_summary_dir = os.path.join(
-        "../logs", config['exp_name'], "train/")
+        path, "../logs", config['exp_name'], "train/")
+        #"../logs", config['exp_name'], "train/")
     config.checkpoint_dir = os.path.join(
-        "../weights", config['exp_name'] + "/")
+        path, "../weights", config['exp_name'] + "/")
+        #"../weights", config['exp_name'] + "/")
     return config

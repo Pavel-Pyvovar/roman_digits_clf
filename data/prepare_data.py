@@ -97,6 +97,7 @@ def resize_grey_and_save(filename, output_dir, size):
     # Back to image
     image = Image.fromarray(array, )
     image.save(output_dir)
+    return array
 
 
 def clean_class(class_path, output_path, image_size):

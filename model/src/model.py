@@ -39,7 +39,7 @@ class Model():
         with tf.name_scope('inputs'):
             self.x = tf.placeholder(
                 dtype=tf.float32,
-                shape=(None, config.image_size, config.image_size, 3))
+                shape=(None, self.config.image_size, self.config.image_size, 3))
             self.y = tf.placeholder(dtype=tf.int32, shape=(None, 8))
             self.training = tf.placeholder(dtype=tf.bool, shape=())
 
@@ -53,13 +53,14 @@ class Model():
 
         # Summary writer
         self.summ_writer_train = tf.summary.FileWriter(
-            config.train_summary_dir, graph=self.sess.graph)
-        self.summ_writer_test = tf.summary.FileWriter(config.test_summary_dir)
+            self.config.train_summary_dir, graph=self.sess.graph)
+        self.summ_writer_test = tf.summary.FileWriter(self.config.test_summary_dir)
 
         self.sess.run(tf.global_variables_initializer())
 
         # Saver
         self.saver = tf.train.Saver(max_to_keep=1, name='saver')
+
 
     def __initialize_local(self):
         """
@@ -69,6 +70,7 @@ class Model():
         """
 
         self.sess.run(tf.local_variables_initializer())
+
 
     def __block(self,
                 inp,
@@ -102,9 +104,9 @@ class Model():
             conv1 = conv2d(inp, ch, c_ker[0], strides=c_str[0])
             bn = batch_normalization(conv1)
             out = act(bn)
-            if config.use_dropout_block:
+            if self.config.use_dropout_block:
                 out = dropout(
-                    out, config.dropout_rate_block, training=self.training)
+                    out, self.config.dropout_rate_block, training=self.training)
 #             print(out.shape)
 
             conv2 = conv2d(out, ch, c_ker[1], strides=c_str[1])
@@ -147,10 +149,10 @@ class Model():
                 dense_l = dense(out, 128)
                 out = batch_normalization(dense_l)
                 out = leaky_relu(out, alpha=0.01)
-                if config.use_dropout_dense:
+                if self.config.use_dropout_dense:
                     out = dropout(
                         out,
-                        rate=config.dropout_rate_dense,
+                        rate=self.config.dropout_rate_dense,
                         training=self.training)
 #                 print(out.shape)
 
