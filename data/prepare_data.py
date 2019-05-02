@@ -96,6 +96,7 @@ def resize_grey_and_save(filename, output_dir, size):
     array = np.stack((array, ) * 3, axis=-1)
     # Back to image
     image = Image.fromarray(array, )
+    #image.show()
     image.save(output_dir)
     return array
 

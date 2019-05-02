@@ -325,7 +325,9 @@ class Model():
         
         :return None
         """
-        
+        print('\n\n\n\n\n\n\n\n\n')
+        print(model_path)
+        print('\n\n\n\n\n\n\n\n\n')
         if model_path is not None:
             meta = [
                 os.path.join(filename) for filename in os.listdir(model_path)
@@ -361,12 +363,28 @@ class Model():
 def main(config):
     m = Model(config)
     m.load_model()
+    img_uploaded = os.path.abspath(os.path.join(__file__, '../../../uploaded_clean'))
     img_path = os.path.abspath(os.path.join(__file__, '../../../data_clean'))
-    img = os.path.abspath(os.path.join(img_path, "1/1.jpg"))
+    test_path = os.path.abspath(os.path.join(__file__, '../../../data_split/test'))
+    img = os.path.abspath(os.path.join(img_uploaded, "3.jpg"))
     image = Image.open(img)
     array = np.asarray(image)
     array = np.stack((array, ) , axis=0)
-    print(m.predict_proba(array, batch=1))
+    for dir in os.listdir(test_path):
+        dir_path = os.path.abspath(os.path.join(test_path, dir))
+        print(dir_path)
+        X = []
+        cl = int(dir) - 1 
+        y = np.zeros([1, 8])
+        y[0][cl] = 1
+        for img in os.listdir(dir_path):
+            path_img = os.path.abspath(os.path.join(dir_path, img))
+            image = Image.open(path_img)
+            array = np.asarray(image)
+            X.append(array)
+            data = np.array(X)
+        m.test(dat=[data, y], batch=data.shape[0])
+
     m.close()
 
 if __name__ == "__main__":

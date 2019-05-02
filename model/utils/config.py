@@ -30,5 +30,6 @@ def process_config(json_file):
         #"../logs", config['exp_name'], "train/")
     config.checkpoint_dir = os.path.join(
         path, "../weights", config['exp_name'] + "/")
+
         #"../weights", config['exp_name'] + "/")
     return config
