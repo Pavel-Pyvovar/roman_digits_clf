@@ -57,13 +57,13 @@ def classify():
         array = resize_grey_and_save(destination, path_to_img, img_size)
         array = np.stack((array, ) , axis=0)
         pred_arr = m.predict_proba(array, batch=1)
-        klass = None
-        for idx, item in enumerate(pred_arr):
-            if(item==1):
-                klass = idx
+        print('\n\n\n\n\n\n\n\n\n\n\n\n')
+        for item in pred_arr: print(item)
+        pred_arr.shape
+        print('\n\n\n\n\n\n\n\n\n\n\n\n')
+        predicted = np.argmax(pred_arr) + 1
 
-
-    return render_template("complete.html")
+    return render_template("complete.html", pred_class=predicted)
 
 
 @app.route("/model")
