@@ -210,8 +210,17 @@ def main(config):
     split_data = os.path.join('..', 'data_split')
 
     # Get filenames in directory with original data
+    """
     classes = [d for d in os.listdir(original_data)
-                if os.path.isdir(os.path.join(original_data, d)) and not str.startswith(d, '.ipynb')]
+                if os.path.isdir(os.path.join(original_data, d)) and not str.startswith(d, '.ipynb'\
+                    and d!='__pycache__')]
+    """
+    classes = []
+    for d in os.listdir(original_data):
+        try:
+            if(isinstance(int(d), int)):
+                classes.append(d)
+        except Exception as e: pass
     classes.sort()
 
     # Remove data if it was created before
