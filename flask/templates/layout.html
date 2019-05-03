@@ -1,70 +1,155 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Roman Digits Classifier</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
 
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{{url_for('static', filename='css/animate.css')}}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{{url_for('static', filename='css/icomoon.css')}}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
 
-    {% if title %}
-        <title>Roman Digits Classifier - {{ title }} </title>
-    {% else %}
-        <title>Roman Digits Classifier</title>
-    {% endif %}
-</head>
-<body>
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{{url_for('static', filename='css/magnific-popup.css')}}">
 
-<header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-            <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarToggle">
-                <div class="navbar-nav mr-auto">
-                <a class="nav-item nav-link" href="/">Home</a>
-                <a class="nav-item nav-link" href="/about">About</a>
-                <a class="nav-item nav-link" href="/wiki">Wiki</a>
-                <a class="nav-item nav-link" href="/data">Data</a>
-                <a class="nav-item nav-link" href="/model">Model</a>
-                </div>
-                <!-- Navbar Right Side -->
-                <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/login">Login</a>
-                <a class="nav-item nav-link" href="/register">Register</a>
-                </div>
-            </div>
-            </div>
-        </nav>
-        </header>
-    <main role="main" class="container">
-            <div class="row">
-                <div class="col-md-8">
-                {% block content %}{% endblock %}
-                </div>
-                <div class="col-md-4">
-                <div class="content-section">
-                    <h3>Our Sidebar</h3>
-                    <ul class="list-group">
-                        <li class="list-group-item list-group-item-light">Wiki</li>
-                        <li class="list-group-item list-group-item-light">Data set</li>
-                        <li class="list-group-item list-group-item-light">Results</li>
-                        <li class="list-group-item list-group-item-light">etc</li>
-                    </ul>
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="{{url_for('static', filename='css/owl.carousel.min.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/owl.theme.default.min.css')}}">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+	<!-- Modernizr JS -->
+	<script src="{{url_for('static', filename='js/modernizr-2.6.2.min.js')}}"></script>
+	</head>
+	<body>
+		
+	<div class="colorlib-loader"></div>
+
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-2">
+							<div id="colorlib-logo"><a class="nav-item nav-link" href="/index">Roman Digits Classifier</a></div>
+						</div>
+						<div class="col-md-10 text-right menu-1">
+							<ul>
+								<li><a class="nav-item nav-link" href="/home">Home</a></li>
+								<li><a class="nav-item nav-link" href="/data">Data</a></li>
+								<li> <a class="nav-item nav-link" href="/model">Model</a></li>
+								<li><a class="nav-item nav-link" href="/contact">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		        
+    {% block content %}{% endblock %}
+
+    <footer id="colorlib-footer">
+        <div class="container">
+            <div class="row row-pb-md">
+                <div class="col-md-3 colorlib-widget">
+                    <h4>About Roman Digits Classifier</h4>
+                    <p>Far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+                    <p>
+                        <ul class="colorlib-social-icons">
+                            <li><a href="#"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                            <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                        </ul>
                     </p>
                 </div>
+                <div class="col-md-3 colorlib-widget">
+                    <h4>Information</h4>
+                    <p>
+                        <ul class="colorlib-footer-links">
+                            <li><a href="#"><i class="icon-check"></i> Home</a></li>
+                            <li><a href="#"><i class="icon-check"></i> Data</a></li>
+                            <li><a href="#"><i class="icon-check"></i> Model</a></li>
+                            <li><a href="#"><i class="icon-check"></i> Contact</a></li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="col-md-3 colorlib-widget">
+                    <h4>Contact Info</h4>
+                    <ul class="colorlib-footer-links">
+                        <li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
+                        <li><a href="tel://1234567920"><i class="icon-phone"></i> + 1235 2355 98</a></li>
+                        <li><a href="mailto:info@yoursite.com"><i class="icon-envelope"></i> info@yoursite.com</a></li>
+                        <li><a href="#"><i class="icon-location4"></i> yourwebsite.com</a></li>
+                    </ul>
                 </div>
             </div>
-            </main>
-    
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        </div>
+        <div class="copy">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p>
+                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --><br> 
+                             Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a>, <a href="http://pexels.com/" target="_blank">Pexels</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+</div>
+
+<!-- jQuery -->
+<script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+<!-- jQuery Easing -->
+<script src="{{url_for('static', filename='js/jquery.easing.1.3.js')}}"></script>
+<!-- Bootstrap -->
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<!-- Waypoints -->
+<script src="{{url_for('static', filename='js/jquery.waypoints.min.js')}}"></script>
+<!-- Stellar Parallax -->
+<script src="{{url_for('static', filename='js/jquery.stellar.min.js')}}"></script>
+<!-- YTPlayer -->
+<script src="{{url_for('static', filename='js/jquery.mb.YTPlayer.min.js')}}"></script>
+<!-- Owl carousel -->
+<script src="{{url_for('static', filename='js/owl.carousel.min.js')}}"></script>
+<!-- Magnific Popup -->
+<script src="{{url_for('static', filename='js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/magnific-popup-options.js')}}"></script>
+<!-- Counters -->
+<script src="{{url_for('static', filename='js/jquery.countTo.js')}}"></script>
+<!-- Main -->
+<script src="{{url_for('static', filename='js/main.js')}}"></script>
+
 </body>
 </html>
