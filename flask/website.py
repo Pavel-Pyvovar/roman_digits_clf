@@ -2,10 +2,14 @@ from flask import Flask, render_template, url_for, request
 import os, sys, json
 import numpy as np
 
-sys.path.append(os.path.abspath(os.path.join(__file__, '../../data')))
-sys.path.append(os.path.abspath(os.path.join(__file__, '../../model/utils')))
-sys.path.append(os.path.abspath(os.path.join(__file__, '../../model/scr')))
-sys.path.append(os.path.abspath(os.path.join(__file__, '../../model')))
+sys.path.append(os.path.abspath\
+    (os.path.join(__file__, '../../data')))
+sys.path.append(os.path.abspath(os.path.join\
+    (__file__, '../../model/utils')))
+sys.path.append(os.path.abspath(os.path.join\
+    (__file__, '../../model/scr')))
+sys.path.append(os.path.abspath(os.path.join\
+    (__file__, '../../model')))
 
 from prepare_data import resize_grey_and_save
 from utils import get_args
@@ -14,11 +18,7 @@ from src.model import Model
 
 app = Flask(__name__)
 
-@app.route("/data")
-def data():
-    return render_template('data.html')
-
-@app.route("/model")
+@app.route("/")
 def model():
     return render_template('model.html')
 
@@ -26,16 +26,13 @@ def model():
 def contact():
     return render_template('contact.html')
 
-@app.route("/home")
-def home():
-    return render_template('home.html')
-
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 @app.route("/model", methods=['POST'])
 def classify():
     uploaded = os.path.join(APP_ROOT, '../uploaded')
     uploaded_clean = os.path.join(APP_ROOT, '../uploaded_clean')
+    predicted = 0
     args = get_args()
     config = process_config(args.config)
     m = Model(config)
@@ -50,17 +47,20 @@ def classify():
 
     for file in request.files.getlist("file"):
         file_path = file.filename
+        print(file_path)
         destination = "/".join([uploaded, file_path])
         file.save(destination)
         file_name = destination.split('/')[-1]
+        print(file_name)
         path_to_img = os.path.abspath(os.path.join(uploaded_clean, file_name))
         array = resize_grey_and_save(destination, path_to_img, config.image_size)
         array = np.stack((array, ) , axis=0)
         pred_arr = m.predict_proba(array)
         predicted = np.argmax(pred_arr) + 1
+        print(predicted)
+    
+
     return render_template("model.html", pred_class=predicted)
-
-
 
 
 if __name__ == "__main__":

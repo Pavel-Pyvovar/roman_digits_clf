@@ -9,8 +9,7 @@
 						<div class="container">
 							<div class="col-md-12 col-md-offset-0">
 								<div class="animate-box">
-									<h2>Discover the power of Machine Learning</h2>
-									<p>with deep neural nets</p>
+									<h2>Roman Digits Classifier</h2>
 								</div>
 							</div>
 						</div>
@@ -29,46 +28,32 @@
 							<p>2. Upload image.</p>
 							<p>3. See the result.</p>
 						</article>
+						
 					</div>
 						<div class="display-t text-center">
 							<div class="display-tc">
 									<form id="upload-form" action="{{ url_for('classify')}}" method="POST" enctype="multipart/form-data">
 										<div class="col-three-forth">
-									<div class="form-group">
-										<input type="file" name="file" accept="image/*" multiple id="upload" placeholder="Select your image">
-										<input type="submit" value="send">
-									</div>
-								</div>
-							</form>
-								<p><a href="gallery.html" class="btn btn-primary btn-lg btn-custom">Upload</a></p>
+											<div class="form-group">
+												<fieldset>
+												<input class="button" type="file" name="file" accept="image/*" multiple id="upload" placeholder="Select your image">
+												<input class="button" type="submit" value="classify">
+												</fieldset>
+											</div>
+										</div>
+									</form>
 							</div>
 						</div>
 				</div>
 	</div>
-
+	
 	<div id="colorlib-subscribe" class="colorlib-subscribe" style="background-image: url(static/images/cover_img_1.jpg);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 text-center colorlib-heading animate-box">
 					<h2>Predicted class</h2>
-					<p>{{predicted}}}</p>
-				</div>
-			</div>
-			<div class="row animate-box">
-				<div class="col-md-6 col-md-offset-3">
-					<div class="row">
-						<div class="col-md-12">
-							<form id="upload-form" action="{{ url_for('classify')}}" method="POST" enctype="multipart/form-data">
-									<div class="col-three-forth">
-								<div class="form-group">
-									<input type="file" name="file" accept="image/*" multiple id="upload" placeholder="Select your image">
-									<input type="submit" value="send">
-								</div>
-							</div>
-						</form>
-						</div>
-					</div>
+					<p>{{pred_class}}</p>
 				</div>
 			</div>
 		</div>

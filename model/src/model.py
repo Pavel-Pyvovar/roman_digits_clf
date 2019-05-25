@@ -325,9 +325,6 @@ class Model():
         
         :return None
         """
-        print('\n\n\n\n\n\n\n\n\n')
-        print(model_path)
-        print('\n\n\n\n\n\n\n\n\n')
         if model_path is not None:
             meta = [
                 os.path.join(filename) for filename in os.listdir(model_path)

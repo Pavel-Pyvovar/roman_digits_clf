@@ -22,25 +22,16 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400" rel="stylesheet">
-	
-	<!-- Animate.css -->
+
+	<link rel="stylesheet" href="{{url_for('static', filename='css/button.css')}}">
 	<link rel="stylesheet" href="{{url_for('static', filename='css/animate.css')}}">
-	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="{{url_for('static', filename='css/icomoon.css')}}">
-	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
-
-	<!-- Magnific Popup -->
 	<link rel="stylesheet" href="{{url_for('static', filename='css/magnific-popup.css')}}">
-
-	<!-- Owl Carousel -->
 	<link rel="stylesheet" href="{{url_for('static', filename='css/owl.carousel.min.css')}}">
 	<link rel="stylesheet" href="{{url_for('static', filename='css/owl.theme.default.min.css')}}">
-
-	<!-- Theme style  -->
 	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 
-	<!-- Modernizr JS -->
 	<script src="{{url_for('static', filename='js/modernizr-2.6.2.min.js')}}"></script>
 	</head>
 	<body>
@@ -52,13 +43,13 @@
 			<div class="top-menu">
 				<div class="container">
 					<div class="row">
+						<!--
 						<div class="col-md-2">
 							<div id="colorlib-logo"><a class="nav-item nav-link" href="/index">Roman Digits Classifier</a></div>
 						</div>
+						-->
 						<div class="col-md-10 text-right menu-1">
 							<ul>
-								<li><a class="nav-item nav-link" href="/home">Home</a></li>
-								<li><a class="nav-item nav-link" href="/data">Data</a></li>
 								<li> <a class="nav-item nav-link" href="/model">Model</a></li>
 								<li><a class="nav-item nav-link" href="/contact">Contact</a></li>
 							</ul>
@@ -90,7 +81,6 @@
                     <p>
                         <ul class="colorlib-footer-links">
                             <li><a href="#"><i class="icon-check"></i> Home</a></li>
-                            <li><a href="#"><i class="icon-check"></i> Data</a></li>
                             <li><a href="#"><i class="icon-check"></i> Model</a></li>
                             <li><a href="#"><i class="icon-check"></i> Contact</a></li>
                         </ul>
@@ -108,20 +98,21 @@
                 </div>
             </div>
         </div>
-        <div class="copy">
+		<!--
+		<div class="copy">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <p>
-                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --><br> 
+<br> 
                              Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a>, <a href="http://pexels.com/" target="_blank">Pexels</a>
                         </p>
                     </div>
                 </div>
             </div>
-        </div>
+		</div>
+		-->
     </footer>
 </div>
 
@@ -129,26 +120,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
 </div>
 
-<!-- jQuery -->
 <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
-<!-- jQuery Easing -->
 <script src="{{url_for('static', filename='js/jquery.easing.1.3.js')}}"></script>
-<!-- Bootstrap -->
 <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
-<!-- Waypoints -->
 <script src="{{url_for('static', filename='js/jquery.waypoints.min.js')}}"></script>
-<!-- Stellar Parallax -->
 <script src="{{url_for('static', filename='js/jquery.stellar.min.js')}}"></script>
-<!-- YTPlayer -->
 <script src="{{url_for('static', filename='js/jquery.mb.YTPlayer.min.js')}}"></script>
-<!-- Owl carousel -->
 <script src="{{url_for('static', filename='js/owl.carousel.min.js')}}"></script>
-<!-- Magnific Popup -->
 <script src="{{url_for('static', filename='js/jquery.magnific-popup.min.js')}}"></script>
 <script src="{{url_for('static', filename='js/magnific-popup-options.js')}}"></script>
-<!-- Counters -->
 <script src="{{url_for('static', filename='js/jquery.countTo.js')}}"></script>
-<!-- Main -->
 <script src="{{url_for('static', filename='js/main.js')}}"></script>
 
 </body>
